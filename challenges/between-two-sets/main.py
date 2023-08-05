@@ -14,8 +14,8 @@ import os
 #
 
 def getTotalX(a, b):
-    a_result = functools.reduce(compute_lcm, a)
-    b_result = functools.reduce(compute_gcd, b)
+    a_result = my_reduce(compute_lcm, a)
+    b_result = my_reduce(compute_gcd, b)
     result_size = 0
     i = 1
     while True:
@@ -26,6 +26,13 @@ def getTotalX(a, b):
             result_size += 1
         i += 1
     return result_size
+
+
+def my_reduce(func, seq):
+    result = seq[0]
+    for i in range(1, len(seq)):
+        result = func(result, seq[i])
+    return result
 
 
 def compute_gcd(x, y):
