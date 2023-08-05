@@ -15,18 +15,18 @@ import sys
 #
 
 def breakingRecords(scores):
-    previous_result = scores[0]
-    min_value = previous_result
-    max_value = previous_result
+    previous_score = scores[0]
+    min_score = previous_score
+    max_score = previous_score
     min_changed_count = 0
     max_changed_count = 0
-    for i in range(1, len(scores)):
-        current_result = scores[i]
-        if current_result > max_value:
-            max_value = current_result
+
+    for score in scores[1:]:
+        if score > max_score:
+            max_score = score
             max_changed_count += 1
-        elif current_result < min_value:
-            min_value = current_result
+        elif score < min_score:
+            min_score = score
             min_changed_count += 1
 
     return [max_changed_count, min_changed_count]
