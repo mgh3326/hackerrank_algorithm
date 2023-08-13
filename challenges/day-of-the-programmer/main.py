@@ -30,11 +30,11 @@ def dayOfProgrammer(year):
             current_list = leap_year_list
         else:
             current_list = not_leap_year_list
-    for i in range(len(current_list)):
-        value = current_list[i]
+    for i, value in enumerate(current_list):
         developer_days -= value
         if developer_days <= 0:
             break
+
     result_str = "%02d.%02d.%d" % (value + developer_days, i + 1, year)
     return result_str
 
